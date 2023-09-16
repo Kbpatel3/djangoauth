@@ -50,7 +50,7 @@ def login_request(request):
             # Log the user in
             login(request, user)
             messages.success(request, "You have successfully logged in")
-            return render(request, 'authentication/index.html', {'fname': user.first_name})
+            return render(request, 'authentication/index.html', {'first_name': user.first_name, 'username': user.username})
         else:
             # Return an error message
             messages.error(request, "Invalid credentials! Please try again")
