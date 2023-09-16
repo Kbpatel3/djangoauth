@@ -56,7 +56,15 @@ def login_request(request):
             messages.error(request, "Invalid credentials! Please try again")
             return redirect('home')
 
+    # Return the login page
     return render(request, 'authentication/login.html')
 
 def logout_request(request):
-    pass
+    # Log the user out
+    logout(request)
+
+    # Show a success message
+    messages.success(request, "You have successfully logged out")
+
+    # Redirect to the home page
+    return redirect('home')
